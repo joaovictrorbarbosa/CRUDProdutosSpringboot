@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<body lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Configuração para visão em mobile-->
+	<title>Lista de Produtos</title>
+</head>  
+<body>
+	<h2>Lista de Produtos - HTML/JavaScript</h2>
+	
+	<!--Tabela de produtos-->
+	<table id="produtosTable" border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Preço</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--Linhas da tabela-->
+		</tbody>
+	</table>
+	
+	<!--Mensagem de erro-->
+	<div id="erroMensagem" style="color: red; display: none;">
+		Erro ao buscar produtos. Por favor, tente novamente.
+	</div>
+	
+	<!--Exibição de total de produtos-->
+	<div id="totalProdutos"> Total de Produtos: 0</div>
+	
+	
+	<!-- Função JavaScript-->
+	<script>
+		//Função para listagem dos produtos
+		function listarProdutos(){
+			//Primeiro requisição get para endpoint de produtos
+			fetch('http://localhost:8080/produtos') //URL do endpoint
+			     .then(response => { //encadeando ações
+					if (!response.ok) {
+						throw new Error('Erro na rede: ' + response.status);
+					}
+					// Convertendo a resposta para JSON
+					return response.json();
+				 })
+				 .then(data => { //Obter o corpo da tabela
+					const tableBody = document.getElementById('produtosTable').getElementsByTagName('tbody')[0];
+					let totalProdutos = 0; // inicializa um contador de produtos
+					// tambem cria as linhas da tabela com os dados inseridos
+					data.forEach(produto => {
+						const row = tableBody.insertRow();
+						const cellId = row.insertCell(0);
+						const cellNome = row.insertCell(1);
+						const cellPreco = row.insertCell(2);
+						//Inserindo dados nas celulas
+						cellId.textContent = produto.id; // inserindo produto na celula
+						cellNome.textContent = produto.nome; // nome do produto
+						cellPreco.textContent = produto.preco; //insere o preço 
+						totalProdutos++; //Incrementa o contador de produtos
+					});
+					//Exibindo total de produtos
+					document.getElementById('totalProdutos').textContent = 'Total de produtos: ' + totalProdutos;
+				 })
+				 .catch(error => {
+					console.error('Erro ao buscar produtos:', error); //exibe erro no console
+					//Exibindo a mensagem de erro
+					document.getElementById('erroMensagem').style.display = 'block';		
+				 });
+			}
+			//EXECUTANDO A FUNÇÃO DE LISTAR PRODUTOS COM A PAGE CARREGADA
+			document.addEventListener('DOMContentLoaded', listarProdutos);
+	</script>
+</body>
+</html>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>

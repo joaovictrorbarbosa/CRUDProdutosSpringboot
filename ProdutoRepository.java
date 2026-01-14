@@ -2,6 +2,7 @@ package com.produtoapi.repository;
 
 import com.produtoapi.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -16,4 +17,15 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 	List<Produto> findByNomeStartingWith(String prefix);
 	
 	List<Produto> findByNomeEndingWith(String suffix);
+	
+	//Buscas pro Preço
+	List<Produto> findByPreco(Double preco);
+	
+	List<Produto> findByPrecoGreaterThan(Double preco);
+	
+	List<Produto> findByPrecoLessThan(Double preco);
+
+	//Usando @Query para obter total de preços
+	@Query("SELECT SUM(p.preco) FROM Produto p")
+	Double findTotalPreco();
 }

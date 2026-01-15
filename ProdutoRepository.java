@@ -28,4 +28,18 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 	//Usando @Query para obter total de preços
 	@Query("SELECT SUM(p.preco) FROM Produto p")
 	Double findTotalPreco();
+	
+	//BUSCA POR QUANTIDADE DETALHADA
+	List<Produto> findByQuantidade(Integer quantidade);
+	
+	List<Produto> findByQuantidadeGreaterThan(Integer quantidade);
+	
+	List<Produto> findByQuantidadeLessThan(Integer quantidade);
+	
+	//Buscas Por preço e Status
+	List<Produto> findByStatus(String status);
+	
+	List<Produto> findByStatusIsNull();
+	
+	List<Produto> findByPrecoAndStatus(Double preco, String status);
 }

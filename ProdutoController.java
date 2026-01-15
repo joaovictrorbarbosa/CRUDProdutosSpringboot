@@ -93,6 +93,52 @@ public class ProdutoController {
 		return produtoService.findTotalPreco();
 	}
 	
+	//BUSCA DETALHADA POR QUANTIDADE
+	
+	@GetMapping("/buscarPorQuantidade")
+	public List<Produto> buscarPorQuantidade(@RequestParam Integer valor){
+		return produtoService.findByQuantidade(valor);
+	}
+	
+	@GetMapping("/buscarPorQuantidadeMaiorQue")
+	public List<Produto> buscarPorQuantidadeMaiorQue(@RequestParam Integer valor){
+		return produtoService.findByQuantidadeGreaterThan(valor);
+	}
+	
+	@GetMapping("/buscarPorQuantidadeMenorQue")
+	public List<Produto> buscarPorQuantidadeMenorQue(@RequestParam Integer valor){
+		return produtoService.findByQuantidadeLessThan(valor);
+	}
+	
+	//Busca por status de produto
+	@GetMapping("/buscaPorStatus")
+	public List<Produto> buscarPorStatus(@RequestParam(required = false) String valor){
+		return produtoService.findByStatus(valor);
+	}
+	
+	@GetMapping("/buscarPorStatusNulo")
+	public List<Produto> buscarPorStatusNulo(){
+		return produtoService.findByStatusIsNull();
+	}
+	
+	@GetMapping("/buscarPorPrecoEStatus")
+	public List<Produto> buscarPorPrecoEStatus(@RequestParam Double preco, @RequestParam String status){
+		return produtoService.findByPrecoAndStatus(preco, status);
+	}
+	
+	@GetMapping("/contarTotal")
+	public Long contarTotalProdutos() {
+		return produtoService.count();
+	}
+	
+	@GetMapping("/buscarPorStatusPadrao")
+	public List<Produto> buscarPorStatusPadrao(@RequestParam(defaultValue= "Disponível") String valor){
+		return produtoService.findByStatus(valor);
+	}
+	
+	
+	
+	
 	
 	
 	

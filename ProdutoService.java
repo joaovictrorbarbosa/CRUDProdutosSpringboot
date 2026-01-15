@@ -79,6 +79,37 @@ public class ProdutoService {
 	public Double findTotalPreco() {
 		return produtoRepository.findTotalPreco();
 	}
+	
+	//BUSCAS DETALHADAS POR QUANTIDADE
+	public List<Produto> findByQuantidade(Integer quantidade){
+		return produtoRepository.findByQuantidade(quantidade);
+	}
+	
+	public List<Produto> findByQuantidadeGreaterThan(Integer quantidade){
+		return produtoRepository.findByQuantidadeGreaterThan(quantidade);
+	}
+	
+	public List<Produto> findByQuantidadeLessThan(Integer quantidade){
+		return produtoRepository.findByQuantidadeLessThan(quantidade);
+	}
+	
+	//BUSCAS POR STATUS E PRECO
+	public List<Produto> findByStatus(String status){
+		return produtoRepository.findByStatus(status);
+	}
+	
+	public List<Produto> findByStatusIsNull(){
+		return produtoRepository.findByStatusIsNull();
+	}
+	
+	public List<Produto> findByPrecoAndStatus(Double preco, String status){
+		return produtoRepository.findByPrecoAndStatus(preco, status);
+	}
+	
+	public Long count() {
+		return produtoRepository.count();
+	}
+	
 }
 	
 	

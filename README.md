@@ -4,7 +4,7 @@ API REST desenvolvida em Spring Boot para gerenciamento de produtos, permitindo 
 
 O projeto foi desenvolvido com foco em aprendizado e consolidação de conceitos fundamentais do Spring Boot, seguindo boas práticas de organização em camadas e arquitetura REST.
 
-## Tecnologias utilizadas
+## Tecnologias Utilizadas
 
 - Java
 - Spring Boot

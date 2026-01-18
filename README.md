@@ -20,12 +20,28 @@ O projeto foi desenvolvido com foco em aprendizado e consolidação de conceitos
 
 ## Arquitetura e organização do projeto
 
-O projeto segue o padrão de arquitetura em camadas, separando responsabilidades e facilitando manutenção e evolução do código.
-controller/ -> Camada de exposição da API (endpoints REST)
-service/ -> Camada de regras de negócio
-repository/ -> Camada de acesso a dados
-model/ -> Entidades do domínio
-client/ -> Páginas HTML para testes manuais da API
+O projeto segue o padrão de arquitetura em camadas, separando responsabilidades e facilitando manutenção e evolução do código. </br>
+controller/ -> Camada de exposição da API (endpoints REST) </br>
+service/ -> Camada de regras de negócio </br> 
+repository/ -> Camada de acesso a dados </br>
+model/ -> Entidades do domínio </br>
+client/ -> Páginas HTML para testes manuais da API 
+
+## Maven
+
+O Apache Maven foi utilizado como ferramenta de gerenciamento de dependências e automação do build da aplicação.
+
+Suas principais responsabilidades no projeto incluem:
+
+Gerenciamento e controle de versões das dependências do Spring Boot
+
+Organização e padronização da estrutura do projeto
+
+Automatização do processo de compilação e empacotamento da aplicação
+
+Facilitação da manutenção e escalabilidade do projeto
+
+Todas as dependências estão configuradas no arquivo pom.xml, permitindo que o projeto seja executado facilmente em qualquer ambiente compatível.
 
 
 ## Descrição das classes

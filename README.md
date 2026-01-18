@@ -102,7 +102,6 @@ Ela implementa a interface `CommandLineRunner` e é utilizada para inserir dados
 
 Essa classe tem finalidade de apoio ao desenvolvimento e não é indicada para uso em ambientes de produção.
 
-
 ## Banco de dados
 
 O projeto utiliza SQLite como banco de dados local, facilitando a execução sem necessidade de configuração externa.
@@ -110,7 +109,6 @@ O projeto utiliza SQLite como banco de dados local, facilitando a execução sem
 O arquivo de banco de dados é criado automaticamente ao executar a aplicação.
 
 As configurações estão localizadas no arquivo `application.properties`.
-
 
 ## Endpoints da API
 
@@ -168,7 +166,6 @@ A API disponibiliza endpoints para operações CRUD e para consultas detalhadas 
 
 ## Testes
 Os testes da API foram realizados utilizando o Postman.
-
 Foram testados:
 - Criação de produtos (POST)
 - Listagem de produtos (GET)
@@ -180,7 +177,7 @@ Os testes foram feitos manualmente, garantindo o correto funcionamento dos endpo
 
 ## Melhorias futuras
 - Testes automatizados com JUnit e Mockito
-
+  
 ## Como executar o projeto
 
 Clone o repositório:
